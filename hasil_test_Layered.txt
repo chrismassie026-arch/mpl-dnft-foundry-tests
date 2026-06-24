@@ -1,0 +1,33 @@
+Compiling 1 files with Solc 0.8.35
+Solc 0.8.35 finished in 534.10ms
+Compiler run successful!
+
+Ran 25 tests for test/PlayerCard_Layered.t.sol:PlayerCard_LayeredTest
+[PASS] test_L01_SafeMint_Sukses_TotalSupplyBertambah() (gas: 85984)
+[PASS] test_L02_SafeMint_DataPemainTersimpanBenar() (gas: 96483)
+[PASS] test_L03_SafeMint_RevertJikaBukanOwner() (gas: 15790)
+[PASS] test_L04_SafeMint_MultipleToken_IdSequential() (gas: 220220)
+[PASS] test_L05_GetPlayerData_RevertJikaTokenTidakAda() (gas: 15999)
+[PASS] test_L06_GetPlayerData_DataBenarSetelahUpdateStats() (gas: 120391)
+[PASS] test_L07_FulfillRequest_BitUnpackingBenar() (gas: 120573)
+[PASS] test_L08_FulfillRequest_BoundaryUint64_TidakOverflow() (gas: 120517)
+[PASS] test_L09_GenerateSVG_OutputTidakKosong() (gas: 98799)
+[PASS] test_L10_GenerateSVG_MengandungKetigaLayer() (gas: 1144380)
+[PASS] test_L11_BackgroundLayer_OutputTidakKosong() (gas: 7534)
+[PASS] test_L12_BackgroundLayer_MengandungHeaderKartu() (gas: 196573)
+[PASS] test_L13_PixelArtLayer_OutputTidakKosong() (gas: 6846)
+[PASS] test_L14_StatsLayer_MengandungDataPemain() (gas: 166699)
+[PASS] test_L15_GenerateSVG_KDADiHitungBenar() (gas: 537931)
+[PASS] test_L16_GenerateSVG_DeathsNol_GuardAktif() (gas: 537597)
+[PASS] test_L17_GenerateSVG_KDALeadingZeroDesimal() (gas: 535807)
+[PASS] test_L18_SetSourceCode_TersimpanBenar() (gas: 82475)
+[PASS] test_L19_SetSourceCode_RevertJikaBukanOwner() (gas: 14268)
+[PASS] test_L20_SetAutomationSettings_Sukses() (gas: 96654)
+[PASS] test_L21_SetAutomationSettings_RevertIntervalTerlalupendek() (gas: 89448)
+[PASS] test_L22_SetAutomationSettings_RevertJikaBelumAdaToken() (gas: 13738)
+[PASS] test_L23_SetAutomationSettings_RevertTargetTokenTidakValid() (gas: 89077)
+[PASS] test_L24_CheckUpkeep_FalseJikaIntervalBelumTerlewati() (gas: 99915)
+[PASS] test_L25_CheckUpkeep_TrueJikaIntervalSudahTerlewati() (gas: 102921)
+Suite result: ok. 25 passed; 0 failed; 0 skipped; finished in 14.17ms (23.00ms CPU time)
+
+Ran 1 test suite in 70.87ms (14.17ms CPU time): 25 tests passed, 0 failed, 0 skipped (25 total tests)
