@@ -78,7 +78,7 @@ import {Strings} from "@openzeppelin/contracts/utils/Strings.sol";
 
 /// @dev Versi testable dari MplPlayerCard_Optimized.
 ///      Menggunakan PlayerCardRenderer library untuk rendering SVG (arsitektur berlapis).
-contract MplPlayerCard_Optimized_Testable {
+contract PlayerCard_Layered_Testable {
     using Strings for uint256;
 
     // --- Storage (identik dengan kontrak asli) ---
@@ -227,12 +227,12 @@ contract MplPlayerCard_Optimized_Testable {
 // TEST CONTRACT
 // =============================================================================
 
-/// @title  MplPlayerCard_OptimizedTest
+/// @title  PlayerCard_LayeredTest
 /// @notice Unit test untuk kontrak Model B (Berlapis / Layered)
 ///         Dijalankan dengan: forge test --match-contract PlayerCard_LayeredTest -vv
 contract PlayerCard_LayeredTest is Test {
 
-    MplPlayerCard_Optimized_Testable public card;
+    PlayerCard_Layered_Testable public card;
     MockRouterLayered                 public router;
 
     address public contractOwner = address(this);
@@ -243,7 +243,7 @@ contract PlayerCard_LayeredTest is Test {
     // -------------------------------------------------------------------------
     function setUp() public {
         router = new MockRouterLayered();
-        card   = new MplPlayerCard_Optimized_Testable(1, address(router));
+        card   = new PlayerCard_Layered_Testable(1, address(router));
     }
 
     // =========================================================================
@@ -272,7 +272,7 @@ contract PlayerCard_LayeredTest is Test {
     /// @dev TC-L-03: Mint oleh non-owner harus revert
     function test_L03_SafeMint_RevertJikaBukanOwner() public {
         vm.prank(nonOwner);
-        vm.expectRevert(MplPlayerCard_Optimized_Testable.NotOwner.selector);
+        vm.expectRevert(PlayerCard_Layered_Testable.NotOwner.selector);
         card.safeMint(nonOwner, "Kairi", "JUNGLE");
     }
 
@@ -465,7 +465,7 @@ contract PlayerCard_LayeredTest is Test {
     /// @dev TC-L-19: setSourceCode oleh non-owner harus revert
     function test_L19_SetSourceCode_RevertJikaBukanOwner() public {
         vm.prank(nonOwner);
-        vm.expectRevert(MplPlayerCard_Optimized_Testable.NotOwner.selector);
+        vm.expectRevert(PlayerCard_Layered_Testable.NotOwner.selector);
         card.setSourceCode("malicious code");
     }
 
@@ -486,7 +486,7 @@ contract PlayerCard_LayeredTest is Test {
         card.safeMint(contractOwner, "Kairi", "JUNGLE");
         vm.expectRevert(
             abi.encodeWithSelector(
-                MplPlayerCard_Optimized_Testable.IntervalTooShort.selector,
+                PlayerCard_Layered_Testable.IntervalTooShort.selector,
                 1800,
                 3600
             )
@@ -496,7 +496,7 @@ contract PlayerCard_LayeredTest is Test {
 
     /// @dev TC-L-22: setAutomationSettings revert jika belum ada token yang di-mint
     function test_L22_SetAutomationSettings_RevertJikaBelumAdaToken() public {
-        vm.expectRevert(MplPlayerCard_Optimized_Testable.NoTokensMinted.selector);
+        vm.expectRevert(PlayerCard_Layered_Testable.NoTokensMinted.selector);
         card.setAutomationSettings(7200, 0);
     }
 
