@@ -205,4 +205,3 @@ Suite result: ok. 25 passed; 0 failed; 0 skipped; finished in 15.22ms
 
 ## Lisensi
 
-MIT
